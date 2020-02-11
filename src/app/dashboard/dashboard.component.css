@@ -1,0 +1,33 @@
+.dashboard {
+  overflow: auto;
+}
+/* tabs */
+.tabs {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  background-color: #062864;
+}
+.tab {
+  font-size: 10px;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  color: #aaa;
+  text-align: center;
+}
+.tab:hover,
+.active {
+  color: #fff;
+}
+@media only screen and (min-width: 400px) {
+  .tab {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .tab {
+    font-size: 16px;
+  }
+}

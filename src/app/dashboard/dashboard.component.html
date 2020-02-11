@@ -1,0 +1,37 @@
+<div class="dashboard">
+  <drop-down
+    [title]="currentCity"
+    [list]="cities"
+    (setCurrentItemEvent)="currentCity = $event"
+  ></drop-down>
+  <ul class="tabs">
+    <li [ngClass]="{ tab: true, active: activeTab === 0 }" (click)="active(0)">
+      Current Weather
+    </li>
+    <li [ngClass]="{ tab: true, active: activeTab === 1 }" (click)="active(1)">
+      Daily Statistics
+    </li>
+    <li [ngClass]="{ tab: true, active: activeTab === 2 }" (click)="active(2)">
+      Monthly Statistics
+    </li>
+  </ul>
+  <current-weather
+    *ngIf="activeTab === 0"
+    [currentCity]="currentCity"
+    [currentCountry]="currentCountry"
+    [icons]="icons"
+    [initChart]="initChart"
+  ></current-weather>
+  <daily-statistics
+    *ngIf="activeTab === 1"
+    [currentCity]="currentCity"
+    [currentCountry]="currentCountry"
+    [initChart]="initChart"
+  ></daily-statistics>
+  <monthly-statistics
+    *ngIf="activeTab === 2"
+    [currentCity]="currentCity"
+    [currentCountry]="currentCountry"
+    [initChart]="initChart"
+  ></monthly-statistics>
+</div>

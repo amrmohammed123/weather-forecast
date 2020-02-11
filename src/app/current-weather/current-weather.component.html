@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="summary">
+    <div class="info">
+      <p><b>Humidity:</b> {{ localWeatherData?.humidity }}%</p>
+      <p><b>Wind Speed:</b> {{ localWeatherData?.windSpeed }} Km/h</p>
+      <p><b>Percipitation:</b> {{ localWeatherData?.precipitation }} MM</p>
+    </div>
+    <div>
+      <div class="weather">
+        <i class="wi {{ icons[localWeatherData?.code] }}"></i>
+        <p class="temperature">
+          <span *ngIf="showCelsius">{{ localWeatherData?.temp_C }}</span>
+          <sup (click)="toggleTemperature()" *ngIf="showCelsius">°C</sup>
+          <span *ngIf="!showCelsius">{{ localWeatherData?.temp_F }}</span>
+          <sup (click)="toggleTemperature()" *ngIf="!showCelsius">°F</sup>
+        </p>
+      </div>
+      <p class="description">
+        <b>{{ localWeatherData?.description }}</b>
+      </p>
+    </div>
+  </div>
+  <div class="chart">
+    <div class="buttons">
+      <button
+        [ngClass]="{ 'active-button': currentActiveButton === 0 }"
+        (click)="setActiveButton(0)"
+      >
+        Temperature
+      </button>
+      <button
+        [ngClass]="{ 'active-button': currentActiveButton === 1 }"
+        (click)="setActiveButton(1)"
+      >
+        Humidity
+      </button>
+      <button
+        [ngClass]="{ 'active-button': currentActiveButton === 2 }"
+        (click)="setActiveButton(2)"
+      >
+        Percipitation
+      </button>
+    </div>
+    <svg id="current-weather-chart" (window:resize)="onResize()"></svg>
+  </div>
+</div>

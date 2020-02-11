@@ -1,0 +1,12 @@
+<div class="drop-down {{ parentClassNames }}">
+  <div class="title {{ titleClassNames }}" (click)="toggleShowList()">
+    {{ title }}
+  </div>
+  <i
+    class="fas fa-angle-down {{ arrowClassNames }}"
+    (click)="toggleShowList()"
+  ></i>
+  <ul *ngIf="showList" class="list {{ listClassNames }}">
+    <li *ngFor="let item of list" (click)="setCurrentItem(item)">{{ item }}</li>
+  </ul>
+</div>

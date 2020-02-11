@@ -1,0 +1,140 @@
+/* container */
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #020d1f, #08398f);
+}
+.container div {
+  color: #fff;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  width: 100%;
+}
+/* Location */
+.container h1 {
+  font-weight: lighter;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+/* Date */
+.container .date {
+  margin: 0 0 9px 0;
+  font-size: 14px;
+}
+/* Weather */
+.container .weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* Icon */
+.container .weather > i {
+  color: #fff;
+  font-size: 72px;
+  margin-right: 20px;
+}
+.container .description {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Temperature */
+.container .temperature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.container .temperature span {
+  font-size: 56px;
+}
+.container .temperature sup {
+  font-size: 24px;
+  margin-bottom: 44px;
+  cursor: pointer;
+}
+.container .temperature sup:hover {
+  opacity: 0.6;
+}
+/* info */
+.container .info p:first-of-type {
+  margin-top: 20px;
+}
+/* select */
+.container select {
+  display: block;
+  outline: none;
+  width: 200px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* medium width */
+@media only screen and (min-width: 700px) {
+  .container .middle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    margin-top: 35px;
+  }
+  .container .info,
+  .container .weather {
+    width: 350px;
+  }
+}
+/* large width */
+@media only screen and (min-width: 900px) {
+  .container h1 {
+    font-size: 48px;
+  }
+  .container .date {
+    font-size: 16px;
+  }
+  .container .middle {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .container > div > div {
+    display: block;
+  }
+  .container .info,
+  .container .weather {
+    width: auto;
+  }
+  .container .weather {
+    margin-top: 0;
+  }
+  .container .weather > i {
+    font-size: 72px;
+  }
+  .container .temperature {
+    margin: 40px 0 40px 0;
+  }
+  .container .temperature span {
+    font-size: 64px;
+  }
+  .container .description {
+    font-size: 24px;
+  }
+  .container .info {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+  }
+  .container .info p {
+    width: 250px;
+  }
+  .container .info p:nth-of-type(2) {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+}

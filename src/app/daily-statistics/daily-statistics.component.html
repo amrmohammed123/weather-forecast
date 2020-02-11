@@ -1,0 +1,42 @@
+<div class="container">
+  <i
+    [ngClass]="{ fas: true, 'fa-angle-left': true, inactive: isStopDate }"
+    (click)="setCurrentDay(getPreviousDay())"
+  ></i>
+  <drop-down
+    [title]="currentDay"
+    [list]="daysList"
+    (setCurrentItemEvent)="currentCity = $event"
+    [parentClassNames]="'daily-statistics-drop-down-parent'"
+    [titleClassNames]="'daily-statistics-drop-down-title'"
+    [arrowClassNames]="'daily-statistics-drop-down-arrow'"
+    (setCurrentItemEvent)="setCurrentDay($event)"
+  ></drop-down>
+  <i
+    [ngClass]="{ fas: true, 'fa-angle-right': true, inactive: isStartDate }"
+    (click)="setCurrentDay(getNextDay())"
+  ></i>
+</div>
+<div class="chart">
+  <div class="buttons">
+    <button
+      [ngClass]="{ 'active-button': currentActiveButton === 0 }"
+      (click)="setActiveButton(0)"
+    >
+      Temperature
+    </button>
+    <button
+      [ngClass]="{ 'active-button': currentActiveButton === 1 }"
+      (click)="setActiveButton(1)"
+    >
+      Humidity
+    </button>
+    <button
+      [ngClass]="{ 'active-button': currentActiveButton === 2 }"
+      (click)="setActiveButton(2)"
+    >
+      Percipitation
+    </button>
+  </div>
+  <svg id="daily-statistics-chart" (window:resize)="onResize()"></svg>
+</div>
