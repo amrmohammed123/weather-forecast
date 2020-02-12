@@ -20,6 +20,9 @@ export class StatisticsComponent implements OnInit, OnChanges {
   @Input() type: string;
   @Input() createDateFromUTC;
   @Output() setErrorMessageEvent = new EventEmitter();
+  isIE =
+    !!navigator.userAgent.match(/Trident/g) ||
+    !!navigator.userAgent.match(/MSIE/g);
   chartId = "statistics-chart";
   isStartDate = true;
   isStopDate = false;
@@ -31,14 +34,18 @@ export class StatisticsComponent implements OnInit, OnChanges {
   currentProperty = "Temperature";
   currentPropertyAverageValue: string;
   currentPropertyUnit = "°C";
+  showLoader = !this.isIE;
   constructor(private historicalWeatherService: HistoricalWeatherService) {}
 
   ngOnInit() {
+    console.log(this.isIE);
     this.currentDate = this.getStartDate();
     this.generateList();
     this.init();
   }
   ngOnChanges() {
+    // show loader and hide chart, controllers and average value
+    this.showLoader = !this.isIE;
     this.init();
   }
   init() {
@@ -103,6 +110,8 @@ export class StatisticsComponent implements OnInit, OnChanges {
             this.chartId,
             this.type
           );
+          // hide loader and show chart, controllers and average value
+          this.showLoader = false;
         },
         err => this.setErrorMessageEvent.emit(err)
       );
@@ -217,6 +226,8 @@ export class StatisticsComponent implements OnInit, OnChanges {
         ).getTime() === this.stopDate.getTime();
       // set date
       this.currentDate = currentDate;
+      // show loader and hide chart, controllers and average value
+      this.showLoader = !this.isIE;
       // initialize component again
       this.init();
     }

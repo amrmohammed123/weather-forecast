@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "dist/weather-forecast",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

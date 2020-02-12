@@ -26,7 +26,6 @@ export class HistoricalWeatherService {
       endDateQuery =
         "&enddate=" + `${endDateInfo[2]} ${endDateInfo[1]} ${endDateInfo[3]}`;
     }
-
     return this.http
       .get(
         `${this.baseUrl}?format=json&key=${environment.weatherApiKey}&q=${location}&extra=utcDateTime${dateQuery}${endDateQuery}`

@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { ILocalWeatherData } from "../ilocal-weather-data";
 
 @Component({
-  selector: "weather-summary",
-  templateUrl: "./weather-summary.component.html",
-  styleUrls: ["./weather-summary.component.css"]
+  selector: "landing-display",
+  templateUrl: "./landing-display.component.html",
+  styleUrls: ["./landing-display.component.css"]
 })
-export class WeatherSummaryComponent implements OnInit {
+export class LandingDisplayComponent implements OnInit {
   @Input() icons;
   @Input() location: string;
   @Input() localWeatherData: ILocalWeatherData;

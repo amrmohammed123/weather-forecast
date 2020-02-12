@@ -166,7 +166,7 @@ export class DashboardComponent implements OnInit {
     let temp2 = temp[0].split("-");
     let temp3 = temp[1].split(":");
     let year = parseInt(temp2[0]);
-    let month = parseInt(temp2[1]);
+    let month = parseInt(temp2[1]) - 1;
     let day = parseInt(temp2[2]);
     let hour = parseInt(temp3[0]);
     let minute = parseInt(temp3[1]);

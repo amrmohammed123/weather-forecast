@@ -42,10 +42,16 @@
     </button>
   </div>
   <!-- d3 graph -->
-  <svg id="statistics-chart" (window:resize)="onResize()"></svg>
+  <svg
+    id="statistics-chart"
+    (window:resize)="onResize()"
+    [ngClass]="{ hide: showLoader }"
+  ></svg>
   <!-- current property average -->
-  <p class="average">
+  <p class="average" [ngClass]="{ hide: showLoader }">
     Average {{ currentProperty }}: {{ currentPropertyAverageValue }}
     {{ currentPropertyUnit }}
   </p>
+  <!-- loader -->
+  <div [ngClass]="{ loader: true, hide: !showLoader }"></div>
 </div>

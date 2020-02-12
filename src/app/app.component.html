@@ -1,11 +1,11 @@
-<weather-summary
+<landing-display
   *ngIf="!currentCity"
   [icons]="icons"
   [localWeatherData]="localWeatherData"
   [location]="location"
   [cities]="cities"
   (setCityEvent)="currentCity = $event"
-></weather-summary>
+></landing-display>
 <dashboard
   *ngIf="currentCity"
   [currentCity]="currentCity"
