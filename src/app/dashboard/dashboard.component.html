@@ -1,9 +1,11 @@
 <div class="dashboard">
+  <!-- drop-down to change city -->
   <drop-down
     [title]="currentCity"
     [list]="cities"
     (setCurrentItemEvent)="currentCity = $event"
   ></drop-down>
+  <!-- navigation for Temperature, humidity and precipitation -->
   <ul class="tabs">
     <li [ngClass]="{ tab: true, active: activeTab === 0 }" (click)="active(0)">
       Current Weather
@@ -15,23 +17,39 @@
       Monthly Statistics
     </li>
   </ul>
+  <!-- current weather -->
   <current-weather
     *ngIf="activeTab === 0"
     [currentCity]="currentCity"
     [currentCountry]="currentCountry"
     [icons]="icons"
     [initChart]="initChart"
+    [createDateFromUTC]="createDateFromUTC"
+    (setErrorMessageEvent)="errorMessage = $event"
   ></current-weather>
-  <daily-statistics
+  <!-- daily statistics -->
+  <statistics
     *ngIf="activeTab === 1"
     [currentCity]="currentCity"
     [currentCountry]="currentCountry"
     [initChart]="initChart"
-  ></daily-statistics>
-  <monthly-statistics
+    [createDateFromUTC]="createDateFromUTC"
+    [type]="'day'"
+    (setErrorMessageEvent)="errorMessage = $event"
+  ></statistics>
+  <!-- monthly statistics -->
+  <statistics
     *ngIf="activeTab === 2"
     [currentCity]="currentCity"
     [currentCountry]="currentCountry"
     [initChart]="initChart"
-  ></monthly-statistics>
+    [createDateFromUTC]="createDateFromUTC"
+    [type]="'month'"
+    (setErrorMessageEvent)="errorMessage = $event"
+  ></statistics>
+  <error-message
+    *ngIf="errorMessage"
+    [errorMessage]="errorMessage"
+    (setErrorMessageEvent)="errorMessage = $event"
+  ></error-message>
 </div>

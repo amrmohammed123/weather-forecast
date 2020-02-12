@@ -7,8 +7,8 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { HttpClientModule } from "@angular/common/http";
 import { DropDownComponent } from "./drop-down/drop-down.component";
 import { CurrentWeatherComponent } from "./current-weather/current-weather.component";
-import { DailyStatisticsComponent } from './daily-statistics/daily-statistics.component';
-import { MonthlyStatisticsComponent } from './monthly-statistics/monthly-statistics.component';
+import { StatisticsComponent } from "./statistics/statistics.component";
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { MonthlyStatisticsComponent } from './monthly-statistics/monthly-statist
     DashboardComponent,
     DropDownComponent,
     CurrentWeatherComponent,
-    DailyStatisticsComponent,
-    MonthlyStatisticsComponent
+    StatisticsComponent,
+    ErrorMessageComponent
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   bootstrap: [AppComponent]

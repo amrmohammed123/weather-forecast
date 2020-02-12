@@ -7,20 +7,20 @@ body {
   padding: 0;
 }
 /* drop-down style for daily-statistics component */
-.daily-statistics-drop-down-parent {
+.statistics-drop-down-parent {
   margin-top: 0 !important;
 }
-.daily-statistics-drop-down-title {
+.statistics-drop-down-title {
   font-size: 14px !important;
 }
-.daily-statistics-drop-down-title:hover {
+.statistics-drop-down-title:hover {
   opacity: 0.8;
 }
 @media only screen and (min-width: 700px) {
-  .daily-statistics-drop-down-title {
+  .statistics-drop-down-title {
     font-size: 20px !important;
   }
 }
-.daily-statistics-drop-down-arrow {
+.statistics-drop-down-arrow {
   display: none !important;
 }

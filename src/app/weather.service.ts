@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../environments/environment";
-import { map } from "rxjs/operators";
+import { map, catchError } from "rxjs/operators";
+import { throwError } from "rxjs";
 import { ILocalWeatherData } from "./ilocal-weather-data";
 @Injectable({
   providedIn: "root"
@@ -26,7 +27,11 @@ export class WeatherService {
           code: (res as any).data.current_condition[0].weatherCode,
           description: (res as any).data.current_condition[0].weatherDesc[0]
             .value
-        }))
+        })),
+        catchError(err => {
+          if (err.error.data) return throwError(err.error.data.error[0].msg);
+          else return throwError("Couldn't load data, something went wrong");
+        })
       );
   }
 }

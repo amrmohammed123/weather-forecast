@@ -1,11 +1,16 @@
 <div class="container">
   <div>
+    <!-- country -->
     <h1>{{ location }}</h1>
+    <!-- date -->
     <p class="date">{{ time }}</p>
+    <!-- weather description -->
     <p class="description">{{ localWeatherData?.description }}</p>
     <div class="middle">
+      <!-- weather (description and temperature) -->
       <div class="weather">
         <i class="wi {{ icons[localWeatherData?.code] }}"></i>
+        <!-- temperature -->
         <p class="temperature">
           <span *ngIf="showCelsius">{{ localWeatherData?.temp_C }}</span>
           <sup (click)="toggleTemperature()" *ngIf="showCelsius">°C</sup>
@@ -13,12 +18,14 @@
           <sup (click)="toggleTemperature()" *ngIf="!showCelsius">°F</sup>
         </p>
       </div>
+      <!-- weather info -->
       <div class="info">
         <p>precipitation: {{ localWeatherData?.precipitation }} mm</p>
         <p>Humidity: {{ localWeatherData?.humidity }}%</p>
         <p>Wind: {{ localWeatherData?.windSpeed }} km/h</p>
       </div>
     </div>
+    <!-- select city -->
     <select (change)="setCurrentCity($event.target.value)" value="">
       <option disabled selected value>Select a City</option>
       <option *ngFor="let city of cities" [value]="city">{{ city }}</option>

@@ -1,0 +1,24 @@
+p {
+  background-color: #d32f2f;
+  color: #fff;
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  left: 15px;
+  margin: 0;
+  border-radius: 5px;
+  padding: 15px 0 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: lighter;
+  word-break: break-word;
+}
+p span {
+  margin-left: 20px;
+}
+p i {
+  margin-right: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}

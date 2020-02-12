@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MonthlyStatisticsComponent } from './monthly-statistics.component';
+import { ErrorMessageComponent } from './error-message.component';
 
-describe('MonthlyStatisticsComponent', () => {
-  let component: MonthlyStatisticsComponent;
-  let fixture: ComponentFixture<MonthlyStatisticsComponent>;
+describe('ErrorMessageComponent', () => {
+  let component: ErrorMessageComponent;
+  let fixture: ComponentFixture<ErrorMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonthlyStatisticsComponent ]
+      declarations: [ ErrorMessageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MonthlyStatisticsComponent);
+    fixture = TestBed.createComponent(ErrorMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

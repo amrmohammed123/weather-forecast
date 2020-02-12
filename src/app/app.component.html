@@ -13,3 +13,8 @@
   [cities]="cities"
   [icons]="icons"
 ></dashboard>
+<error-message
+  *ngIf="errorMessage"
+  [errorMessage]="errorMessage"
+  (setErrorMessageEvent)="errorMessage = $event"
+></error-message>

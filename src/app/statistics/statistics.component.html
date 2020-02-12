@@ -1,0 +1,51 @@
+<div class="navigator-container">
+  <!-- month/day navigator -->
+  <i
+    [ngClass]="{ fas: true, 'fa-angle-left': true, inactive: isStopDate }"
+    (click)="setCurrentDate(getPreviousDate())"
+  ></i>
+  <drop-down
+    [title]="currentDate"
+    [list]="list"
+    (setCurrentItemEvent)="currentDate = $event"
+    [parentClassNames]="'statistics-drop-down-parent'"
+    [titleClassNames]="'statistics-drop-down-title'"
+    [arrowClassNames]="'statistics-drop-down-arrow'"
+    (setCurrentItemEvent)="setCurrentDate($event)"
+  ></drop-down>
+  <i
+    [ngClass]="{ fas: true, 'fa-angle-right': true, inactive: isStartDate }"
+    (click)="setCurrentDate(getNextDate())"
+  ></i>
+</div>
+<!-- line chart -->
+<div class="chart">
+  <!-- controllers -->
+  <div class="buttons">
+    <button
+      [ngClass]="{ 'active-button': currentActiveButton === 0 }"
+      (click)="setActiveButton(0)"
+    >
+      Temperature
+    </button>
+    <button
+      [ngClass]="{ 'active-button': currentActiveButton === 1 }"
+      (click)="setActiveButton(1)"
+    >
+      Humidity
+    </button>
+    <button
+      [ngClass]="{ 'active-button': currentActiveButton === 2 }"
+      (click)="setActiveButton(2)"
+    >
+      Precipitation
+    </button>
+  </div>
+  <!-- d3 graph -->
+  <svg id="statistics-chart" (window:resize)="onResize()"></svg>
+  <!-- current property average -->
+  <p class="average">
+    Average {{ currentProperty }}: {{ currentPropertyAverageValue }}
+    {{ currentPropertyUnit }}
+  </p>
+</div>

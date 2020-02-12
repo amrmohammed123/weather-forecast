@@ -1,9 +1,10 @@
 <div class="container">
+  <!-- Weather summary-->
   <div class="summary">
     <div class="info">
       <p><b>Humidity:</b> {{ localWeatherData?.humidity }}%</p>
       <p><b>Wind Speed:</b> {{ localWeatherData?.windSpeed }} Km/h</p>
-      <p><b>Percipitation:</b> {{ localWeatherData?.precipitation }} MM</p>
+      <p><b>Precipitation:</b> {{ localWeatherData?.precipitation }} MM</p>
     </div>
     <div>
       <div class="weather">
@@ -20,6 +21,7 @@
       </p>
     </div>
   </div>
+  <!-- line chart -->
   <div class="chart">
     <div class="buttons">
       <button
@@ -38,7 +40,7 @@
         [ngClass]="{ 'active-button': currentActiveButton === 2 }"
         (click)="setActiveButton(2)"
       >
-        Percipitation
+        Precipitation
       </button>
     </div>
     <svg id="current-weather-chart" (window:resize)="onResize()"></svg>

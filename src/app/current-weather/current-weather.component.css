@@ -1,7 +1,7 @@
 .container {
   margin: 15px;
 }
-/* weather */
+/* weather summary */
 .summary {
   display: flex;
   justify-content: center;
@@ -28,6 +28,7 @@
   color: #062864;
   text-align: center;
 }
+/* temperature */
 .temperature {
   display: flex;
   align-items: center;
@@ -45,17 +46,14 @@
 .temperature sup:hover {
   opacity: 0.6;
 }
-/* chart */
+/* line chart */
 .chart {
-  /*
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  */
   padding: 20px 2px 20px 2px;
   margin-top: 15px;
   width: 90%;
   margin: auto;
 }
+/* chart controllers */
 .buttons {
   text-align: center;
 }
@@ -78,6 +76,7 @@
   color: #fff;
   background-color: #062864;
 }
+/* d3 graph */
 svg {
   display: block;
   width: 98%;
@@ -89,6 +88,7 @@ svg {
     display: flex;
     justify-content: space-between;
   }
+  /* weather summary */
   .summary {
     justify-content: flex-start;
     width: calc(50% - 30px);
@@ -97,6 +97,7 @@ svg {
     margin-right: 40px;
     font-size: 13px;
   }
+  /* line chart */
   .chart {
     width: calc(50% - 30px);
   }
@@ -116,9 +117,11 @@ svg {
     font-size: 40px;
     margin-right: 20px;
   }
+  /* weather description */
   .description {
     font-size: 16px;
   }
+  /* temperature */
   .temperature span {
     font-size: 34px;
   }
@@ -133,10 +136,12 @@ svg {
     display: flex;
     justify-content: space-between;
   }
+  /* weather summary */
   .info {
     font-size: 16px;
     margin-right: 60px;
   }
+  /* chart controllers */
   .buttons button {
     width: 75px;
     font-size: 11px;
@@ -147,7 +152,7 @@ svg {
     display: flex;
     justify-content: space-between;
   }
-  /* weather */
+  /* weather summary */
   .summary {
     justify-content: flex-start;
     width: calc(50% - 30px);
@@ -161,9 +166,11 @@ svg {
     font-size: 52px;
     margin-right: 20px;
   }
+  /* weather description */
   .description {
     font-size: 20px;
   }
+  /* temperature */
   .temperature span {
     font-size: 40px;
   }
@@ -171,15 +178,17 @@ svg {
     font-size: 20px;
     margin-bottom: 34px;
   }
-  /* chart */
+  /* line chart */
   .chart {
     width: calc(50% - 30px);
     margin-top: 0;
   }
+  /* chart controllers */
   .buttons button {
     width: 90px;
     font-size: 14px;
   }
+  /* d3 graph */
   svg {
     height: 250px;
   }

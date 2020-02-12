@@ -61,11 +61,11 @@
 .container .temperature sup:hover {
   opacity: 0.6;
 }
-/* info */
+/* weather info */
 .container .info p:first-of-type {
   margin-top: 20px;
 }
-/* select */
+/* city select */
 .container select {
   display: block;
   outline: none;
@@ -77,8 +77,6 @@
   border-radius: 3px;
   font-size: 16px;
 }
-
-/* medium width */
 @media only screen and (min-width: 700px) {
   .container .middle {
     display: flex;
@@ -86,16 +84,18 @@
     margin-bottom: 35px;
     margin-top: 35px;
   }
+  /* weather */
   .container .info,
   .container .weather {
     width: 350px;
   }
 }
-/* large width */
 @media only screen and (min-width: 900px) {
+  /* weather summary container */
   .container h1 {
     font-size: 48px;
   }
+  /* date */
   .container .date {
     font-size: 16px;
   }
@@ -106,6 +106,7 @@
   .container > div > div {
     display: block;
   }
+  /* weather */
   .container .info,
   .container .weather {
     width: auto;
@@ -116,15 +117,18 @@
   .container .weather > i {
     font-size: 72px;
   }
+  /* Temperature */
   .container .temperature {
     margin: 40px 0 40px 0;
   }
   .container .temperature span {
     font-size: 64px;
   }
+  /* weather description */
   .container .description {
     font-size: 24px;
   }
+  /* weather info */
   .container .info {
     display: flex;
     font-size: 20px;

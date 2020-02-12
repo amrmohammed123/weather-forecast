@@ -63,24 +63,31 @@ export class AppComponent {
   };
   localWeatherData: ILocalWeatherData;
   location: string = "Egypt";
-  cities: string[] = ["Cairo", "Giza", "Alexandria"];
-  currentCity: string = "Cairo";
+  cities: string[];
+  currentCity: string;
+  errorMessage: string;
   constructor(
     private weatherService: WeatherService,
     private locationService: LocationService
   ) {}
   ngOnInit() {
-    /*
     // get location
-    this.locationService.getLocation().subscribe(location => {
-      this.location = location;
-      // get weather data
-      this.weatherService.getLocalData(location).subscribe(data => {
-        this.localWeatherData = data;
-      });
-      // set cities
-      this.cities = (countriesToCities as any).default[location.toLowerCase()];
-    });
-    */
+    this.locationService.getLocation().subscribe(
+      location => {
+        this.location = location;
+        // get weather data
+        this.weatherService.getLocalData(location).subscribe(
+          data => {
+            this.localWeatherData = data;
+          },
+          err => (this.errorMessage = err)
+        );
+        // set cities
+        this.cities = (countriesToCities as any).default[
+          location.toLowerCase()
+        ];
+      },
+      err => (this.errorMessage = err)
+    );
   }
 }

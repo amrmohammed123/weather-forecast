@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { WeatherService } from "../weather.service";
-import { LocationService } from "../location.service";
 import { ILocalWeatherData } from "../ilocal-weather-data";
 
 @Component({
@@ -17,6 +15,7 @@ export class WeatherSummaryComponent implements OnInit {
   time: string;
   showCelsius = true;
 
+  constructor() {}
   ngOnInit() {
     // get current time
     this.time = new Date().toLocaleString("en-US", {
@@ -27,9 +26,11 @@ export class WeatherSummaryComponent implements OnInit {
     });
   }
   toggleTemperature() {
+    // change temperature in °C to °F and the reverse
     this.showCelsius = !this.showCelsius;
   }
   setCurrentCity(city: String) {
+    // set the selected city
     this.setCityEvent.emit(city);
   }
 }

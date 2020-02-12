@@ -26,14 +26,17 @@ export class DropDownComponent implements OnInit {
   constructor() {}
   ngOnInit() {}
   toggleShowList() {
+    // hide or show the list
     this.showList = !this.showList;
   }
   setCurrentItem(item) {
+    // pass current selected item to the parent
     this.setCurrentItemEvent.emit(item);
     this.showList = false;
   }
   @HostListener("click")
   clickInside() {
+    // detect if there's a click inside the component
     this.clickedInside = true;
   }
   @HostListener("document:click")
