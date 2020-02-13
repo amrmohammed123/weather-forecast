@@ -22,7 +22,7 @@ export class StatisticsComponent implements OnInit, OnChanges {
   @Output() setErrorMessageEvent = new EventEmitter();
   isIE =
     !!navigator.userAgent.match(/Trident/g) ||
-    !!navigator.userAgent.match(/MSIE/g);
+    !!navigator.userAgent.match(/MSIE/g); // check if the browser if internet explorer
   chartId = "statistics-chart";
   isStartDate = true;
   isStopDate = false;
@@ -38,7 +38,6 @@ export class StatisticsComponent implements OnInit, OnChanges {
   constructor(private historicalWeatherService: HistoricalWeatherService) {}
 
   ngOnInit() {
-    console.log(this.isIE);
     this.currentDate = this.getStartDate();
     this.generateList();
     this.init();
@@ -234,8 +233,9 @@ export class StatisticsComponent implements OnInit, OnChanges {
   }
   getStartDate() {
     let currentDate = new Date();
-    // if month set month for previous month
+    // if month set month for previous month, if day set day for yesterday
     if (this.type === "month") currentDate.setMonth(currentDate.getMonth() - 1);
+    else currentDate.setTime(currentDate.getTime() - 24 * 60 * 60 * 1000);
     let currentDateInfo = currentDate.toDateString().split(" ");
     return `${this.type === "day" ? currentDateInfo[2] + " " : ""}${
       currentDateInfo[1]

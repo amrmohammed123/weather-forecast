@@ -29,7 +29,9 @@ export class WeatherService {
             .value
         })),
         catchError(err => {
-          if (err.error.data) return throwError(err.error.data.error[0].msg);
+          if (err.error && err.error.data)
+            return throwError(err.error.data.error[0].msg);
+          else if (err.data) return throwError(err.data.error[0].msg);
           else return throwError("Couldn't load data, something went wrong");
         })
       );
