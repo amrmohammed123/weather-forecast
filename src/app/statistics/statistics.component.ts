@@ -233,9 +233,8 @@ export class StatisticsComponent implements OnInit, OnChanges {
   }
   getStartDate() {
     let currentDate = new Date();
-    // if month set month for previous month, if day set day for yesterday
+    // if month set month for previous month
     if (this.type === "month") currentDate.setMonth(currentDate.getMonth() - 1);
-    else currentDate.setTime(currentDate.getTime() - 24 * 60 * 60 * 1000);
     let currentDateInfo = currentDate.toDateString().split(" ");
     return `${this.type === "day" ? currentDateInfo[2] + " " : ""}${
       currentDateInfo[1]

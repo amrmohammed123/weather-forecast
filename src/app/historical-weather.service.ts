@@ -15,7 +15,12 @@ export class HistoricalWeatherService {
   getCurrentWeather(location: string, date: string, type: string) {
     let dateQuery = "",
       endDateQuery = "";
-    if (date) dateQuery = `&date=${date}`;
+    if (date) {
+      if (new Date().toDateString() === new Date(data).toDateString()) {
+        // check if date is today
+        dateQuery = "";
+      } else dateQuery = `&date=${date}`;
+    }
     // set month related queries
     if (type === "month") {
       // set end date query
