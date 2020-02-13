@@ -16,7 +16,7 @@ export class HistoricalWeatherService {
     let dateQuery = "",
       endDateQuery = "";
     if (date) {
-      if (new Date().toDateString() === new Date(data).toDateString()) {
+      if (new Date().toDateString() === new Date(date).toDateString()) {
         // check if date is today
         dateQuery = "";
       } else dateQuery = `&date=${date}`;
